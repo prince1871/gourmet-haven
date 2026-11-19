@@ -110,16 +110,28 @@ html.dark {
     }
 }
 
-/* Keep the header within narrow phone screens, including the restored theme button. */
-@media (max-width: 380px) {
+/* Keep the header full-width and within every phone screen, including the theme button. */
+header {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+}
+
+header > div {
+    width: 100%;
+}
+
+@media (max-width: 639px) {
     header > div {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
+        gap: 0.5rem;
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
     }
 
     header > div > a {
         font-size: 0.875rem;
         letter-spacing: 0.025em;
+        min-width: 0;
     }
 
     header > div > a i {
@@ -128,6 +140,7 @@ html.dark {
 
     header > div > .flex {
         gap: 0.25rem;
+        flex-shrink: 0;
     }
 
     #theme-toggle {
