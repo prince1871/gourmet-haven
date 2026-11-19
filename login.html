@@ -79,6 +79,22 @@
     <script>
         document.getElementById('login-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            const form = e.currentTarget;
+            const account = JSON.parse(localStorage.getItem('gourmet-haven-account') || 'null');
+            const email = form.querySelector('input[type="email"]').value.trim().toLowerCase();
+            const password = form.querySelector('input[type="password"]').value;
+
+            if (!account) {
+                showToast('Create an account first', 'Please register before signing in.', 'error');
+                return;
+            }
+
+            if (account.email !== email || account.password !== password) {
+                showToast('Login failed', 'Your email or password is incorrect.', 'error');
+                return;
+            }
+
+            localStorage.setItem('gourmet-haven-session', 'active');
             showToast('Success', 'Login successful! Redirecting...', 'success');
             setTimeout(() => { window.location.href = 'index.html'; }, 1500);
         });

@@ -20,7 +20,6 @@
     <button id="theme-toggle" class="absolute top-6 right-6 z-50 p-3 rounded-full glassmism text-slate-800 dark:text-amber-400 hover:scale-110 transition shadow-lg">
         <i id="theme-icon" class="fas fa-moon text-xl"></i>
     </button>
-`
     <div class="w-full max-w-md mx-4 z-10 py-6">
         <div class="glassmism p-8 rounded-3xl shadow-2xl relative border border-white/20 dark:border-slate-800/50">
             
@@ -87,6 +86,14 @@
     <script>
         document.getElementById('signup-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            const form = e.currentTarget;
+            const account = {
+                name: form.querySelector('input[type="text"]').value.trim(),
+                email: form.querySelector('input[type="email"]').value.trim().toLowerCase(),
+                password: form.querySelector('input[type="password"]').value
+            };
+            localStorage.setItem('gourmet-haven-account', JSON.stringify(account));
+            localStorage.removeItem('gourmet-haven-session');
             showToast('Account Created', 'Registration successful! Welcome aboard.', 'success');
             setTimeout(() => { window.location.href = 'login.html'; }, 1500);
         });

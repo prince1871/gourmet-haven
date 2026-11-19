@@ -380,6 +380,7 @@ function toggleCart() {
 function triggerLogout() {
     showToast("Session Termination", "De-authenticating credentials token state...", "info");
     setTimeout(() => {
+        localStorage.removeItem("gourmet-haven-session");
         window.location.href = "login.html";
     }, 1200);
 }
