@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Haven - Login</title>
+    <script src="assets/tailwind.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 transition-colors duration-300 min-h-screen flex items-center justify-center relative overflow-hidden">
+    
+    <div class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 scale-105" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 bg-slate-950/40 dark:bg-slate-950/70 backdrop-blur-xs"></div>
+    </div>
+
+    <button id="theme-toggle" class="absolute top-6 right-6 z-50 p-3 rounded-full glassmism text-slate-800 dark:text-amber-400 hover:scale-110 transition shadow-lg">
+        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+    </button>
+
+    <div class="w-full max-w-md mx-4 z-10">
+        <div class="glassmism p-8 rounded-3xl shadow-2xl relative border border-white/20 dark:border-slate-800/50">
+            
+            <div class="text-center mb-8">
+                <div class="inline-flex p-3 bg-orange-500 text-white rounded-2xl shadow-lg shadow-orange-500/30 mb-3">
+                    <i class="fas fa-utensils text-2xl animate-bounce"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Welcome Back</h2>
+                <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">Savor the flavor. Log in to your culinary portal.</p>
+            </div>
+
+            <form id="login-form" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-1">Email Address</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input type="email" required placeholder="chef@gourmethaven.com" class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/60 dark:bg-slate-900/60 text-slate-900 dark:text-white placeholder-slate-400 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-orange-500 transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-1">Password</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input type="password" required placeholder="••••••••" class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/60 dark:bg-slate-900/60 text-slate-900 dark:text-white placeholder-slate-400 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-orange-500 transition">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                    <label class="flex items-center text-slate-700 dark:text-slate-300 cursor-pointer">
+                        <input type="checkbox" class="rounded text-orange-500 focus:ring-orange-500 mr-2 bg-white/50">
+                        Remember me
+                    </label>
+                    <a href="forgot-password.html" class="text-orange-600 dark:text-orange-400 hover:underline font-medium">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="w-full py-3 px-4 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold rounded-xl shadow-lg shadow-orange-500/20 transform hover:-translate-y-0.5 transition active:translate-y-0 flex justify-center items-center gap-2">
+                    Sign In <i class="fas fa-arrow-right text-sm"></i>
+                </button>
+            </form>
+
+            <div class="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
+                Don't have an account? 
+                <a href="signup.html" class="text-orange-600 dark:text-orange-400 hover:underline font-bold ml-1">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification-container" class="fixed top-5 right-5 z-50 flex flex-col gap-3"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('Success', 'Login successful! Redirecting...', 'success');
+            setTimeout(() => { window.location.href = 'index.html'; }, 1500);
+        });
+    </script>
+</body>
+</html>
