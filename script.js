@@ -190,8 +190,8 @@ function renderMenu(items) {
 
     grid.innerHTML = items.map((item) => `
         <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-black/20">
-            <div class="relative aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-800">
-                <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+            <div class="relative aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-800 sm:aspect-[4/3]">
+                <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" class="h-full w-full object-contain transition duration-500 sm:object-cover sm:group-hover:scale-105">
                 <span class="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-700 shadow-sm backdrop-blur dark:bg-slate-900/95 dark:text-slate-200">${escapeHtml(item.category)}</span>
                 <span class="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-slate-950/75 px-2.5 py-1.5 text-[10px] font-bold text-white backdrop-blur"><i class="fas fa-star text-amber-400"></i> 4.9</span>
             </div>
