@@ -190,8 +190,8 @@ function renderMenu(items) {
 
     grid.innerHTML = items.map((item) => `
         <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/60 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-black/20">
-            <div class="relative flex w-full items-center justify-center overflow-hidden bg-slate-100 p-2 dark:bg-slate-800">
-                <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" class="block h-auto max-h-[55svh] w-auto max-w-full object-contain transition duration-500">
+            <div class="menu-image-frame relative flex w-full items-center justify-center overflow-hidden bg-slate-100 p-2 dark:bg-slate-800">
+                <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" class="menu-item-image block h-auto max-h-[55svh] w-auto max-w-full object-contain transition duration-500">
                 <span class="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-slate-700 shadow-sm backdrop-blur dark:bg-slate-900/95 dark:text-slate-200 sm:left-3 sm:top-3 sm:px-3 sm:py-1.5 sm:text-[10px]">${escapeHtml(item.category)}</span>
                 <span class="absolute right-2 top-2 flex items-center gap-1 rounded-full bg-slate-950/75 px-2 py-1 text-[9px] font-bold text-white backdrop-blur sm:right-3 sm:top-3 sm:px-2.5 sm:py-1.5 sm:text-[10px]"><i class="fas fa-star text-amber-400"></i> 4.9</span>
             </div>
